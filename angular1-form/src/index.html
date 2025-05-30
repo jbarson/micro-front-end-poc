@@ -9,7 +9,9 @@
     <script src="app.js"></script>
 </head>
 <body ng-controller="FormController as formCtrl">
-    <h1>Form Submission</h1>
+    <h1>AngularJS App with Shared Form</h1>
+
+    <h2>Original Angular Form (for comparison)</h2>
     <form ng-submit="formCtrl.submitForm()">
         <label for="firstName">First Name:</label>
         <input type="text" id="firstName" ng-model="formCtrl.firstName" required>
@@ -17,7 +19,36 @@
         <label for="lastName">Last Name:</label>
         <input type="text" id="lastName" ng-model="formCtrl.lastName" required>
         <br>
-        <button type="submit">Submit</button>
+        <button type="submit">Submit Angular Form</button>
     </form>
+    <div ng-if="formCtrl.submitted" class="submitted-data">
+        <h2>Submitted Angular Form Data:</h2>
+        <p>First Name: {{formCtrl.firstName}}</p>
+        <p>Last Name: {{formCtrl.lastName}}</p>
+    </div>
+
+    <hr class="separator-line">
+
+    <h2>Shared Form Microfrontend</h2>
+    <div id="angular-embeds-shared-form"></div>
+    <!-- Script to load and render the shared form -->
+    <script src="http://localhost:3002/form.js"></script>
+    <script>
+        // Wait for the shared form script to load
+        document.addEventListener('DOMContentLoaded', function() {
+            if (window.renderSharedForm) {
+                window.renderSharedForm('angular-embeds-shared-form', function(data) {
+                    console.log('Shared form submitted in Angular app:', data);
+                    // You can update $scope or formCtrl here if needed,
+                    // but you'll need to use $apply if outside Angular's digest cycle.
+                    // For simplicity, just logging here.
+                    alert('Shared form submitted! Check console. Data: ' + JSON.stringify(data));
+                });
+            } else {
+                console.error('renderSharedForm function not found.');
+            }
+        });
+    </script>
+
 </body>
 </html>

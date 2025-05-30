@@ -1,0 +1,12 @@
+{
+  "name": "shared-form-component",
+  "version": "1.0.0",
+  "description": "A shared form component microfrontend",
+  "main": "form.js",
+  "scripts": {
+    "start": "http-server . -p 3002 --cors"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}

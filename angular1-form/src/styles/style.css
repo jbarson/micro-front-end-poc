@@ -37,3 +37,17 @@ button {
 button:hover {
     background-color: #218838;
 }
+
+.submitted-data {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.separator-line {
+    margin: 20px 0;
+    border: 0;
+    border-top: 1px solid #eee;
+}

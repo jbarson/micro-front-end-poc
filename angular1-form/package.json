@@ -4,11 +4,14 @@
   "description": "An AngularJS application that displays a form for first and last names.",
   "main": "src/app.js",
   "scripts": {
-    "start": "http-server ./src"
+    "start": "http-server ./src -p 3001 --cors"
   },
   "dependencies": {
     "angular": "^1.8.2"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
 }

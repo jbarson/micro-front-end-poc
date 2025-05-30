@@ -2,7 +2,11 @@
 
 import { FormEvent, useState } from "react";
 
-export default function NameForm() {
+interface NameFormProps {
+  onSubmit: (data: { firstName: string; lastName: string }) => void;
+}
+
+export default function NameForm({ onSubmit }: NameFormProps) {
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -11,6 +15,7 @@ export default function NameForm() {
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log("Form submitted with:", formData);
+    onSubmit(formData);
   };
 
   return (
