@@ -1,0 +1,14 @@
+{
+  "name": "angular1-form",
+  "version": "1.0.0",
+  "description": "An AngularJS application that displays a form for first and last names.",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "http-server ./src"
+  },
+  "dependencies": {
+    "angular": "^1.8.2"
+  },
+  "author": "",
+  "license": "ISC"
+}
